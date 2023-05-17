@@ -1,0 +1,39 @@
+
+<main>
+  <div class="row">
+    <div class="col-sm-4"> <strong class="font-weight-600">booking code</strong>
+      <p>{{booking.bookingCode}}</p>
+      <strong class="font-weight-600">Email:</strong>
+      <p>{{booking.contactDetails[0].address}}</p>
+      <strong class="font-weight-600">First name:</strong>
+      <p>{{booking.passengers.firstName}}</p>
+      <strong class="font-weight-600">Last name:</strong>
+      <p>{{booking.passengers.lastName}}</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <div class="row align-items-center trip-title">
+        <div class="col-5 col-md-auto text-center text-md-left">
+          <h5 class="m-0">{{booking.itinerary.connections[0].origin.name}} ({{booking.itinerary.connections[0].origin.IATACode}})</h5>
+        </div>
+        <div class="col-2 col-md-auto text-8 text-black-50 text-center trip-arrow">➝</div>
+        <div class="col-5 col-md-auto text-center text-md-left">
+          <h5 class="m-0">{{booking.itinerary.connections[0].destination.name}} ({{booking.itinerary.connections[0].destination.IATACode}})</h5>
+        </div>
+        <div class="col-12 col-md-auto text-3 text-dark text-center mt-2 mt-md-0 ml-md-auto">15 Jun 21, Sat</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-4"><strong class="font-weight-600">Confirmation Code:</strong>
+          <p>#MG245C</p>
+        </div>
+        <div class="col-sm-4"><strong class="font-weight-600">Confirmation Status:</strong>
+          <p><span class="badge badge-success py-1 px-2 font-weight-normal">Confirmed <i class="fas fa-check-circle"></i></span></p>
+        </div>
+      </div>
+      <hr class="mt-1">
+    </div>
+  </div>
+</main>

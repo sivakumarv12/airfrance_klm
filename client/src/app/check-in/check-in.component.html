@@ -1,0 +1,30 @@
+<div class="container" *ngIf="!itinerary">
+  <h1 class="text--center">RETRIEVE YOUR BOOKING</h1>
+  <p>
+    you can find your booking by filling out your family name and the booking code in your booking confirmation.
+  </p>
+  <div  class="login-item">
+  <form [formGroup]="checkInForm" (ngSubmit)="retrieveBooking()">
+    <label>Booking code </label>
+    <input id="bookingcode" type="text" formControlName="bookingCode">
+    <p class="alert alert-danger" *ngIf="checkInForm.controls['bookingCode'].hasError('minlength')">
+      BookingCode must be at least 5 characters long.
+  </p>
+  <p class="alert alert-danger" *ngIf="checkInForm.controls['bookingCode'].hasError('maxlength')">
+    BookingCode cannot exceed 6 characters.
+  </p>
+    <label>Family Name </label>
+    <input id="familyname" type="text" formControlName="familyName">
+    <p class="alert alert-danger" *ngIf="checkInForm.controls['familyName'].hasError('minlength')">
+      FamilyName must be at least 5 characters long.
+  </p>
+  <p class="alert alert-danger" *ngIf="checkInForm.controls['familyName'].hasError('maxlength')">
+     FamilyName cannot exceed 30 characters.
+  </p>
+    <button type="submit" [disabled]="!checkInForm.valid">Retrieve booking</button>
+    </form>
+  </div>
+</div>
+
+
+<app-itinerary-details [bookingData]="bookingData" *ngIf="itinerary"></app-itinerary-details>
